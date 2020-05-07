@@ -1,0 +1,13 @@
+[Unit]
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/opt/network/masquerade.sh
+ExecReload=/opt/network/masquerade.sh
+ExecStop=/opt/network/masquerade-stop.sh
+
+[Install]
+WantedBy=multi-user.target
